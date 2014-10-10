@@ -5,23 +5,16 @@
  */
 package edu.wpi.first.wpilibj.LFRobotics2014.commands;
 
-import edu.wpi.first.wpilibj.LFRobotics2014.RobotMap;
-import edu.wpi.first.wpilibj.Solenoid;
-
-
-
 /**
  *
  * @author Franklin Marquette
  */
-public class ExtendSolenoid extends CommandBase {
+public class ExtendSolenoid2 extends CommandBase {
     
-    private Solenoid s1;
-    
-    public ExtendSolenoid() {
+    public ExtendSolenoid2() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        s1 = new Solenoid(RobotMap.solenoid1);
+        requires(solenoid2);
     }
 
     // Called just before this Command runs the first time
@@ -30,7 +23,7 @@ public class ExtendSolenoid extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        s1.set(true);
+        solenoid2.EXTEND();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,6 +33,7 @@ public class ExtendSolenoid extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        solenoid2.OFF();
     }
 
     // Called when another command which requires one or more of the same

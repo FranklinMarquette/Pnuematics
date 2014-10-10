@@ -9,11 +9,12 @@ package edu.wpi.first.wpilibj.LFRobotics2014.commands;
  *
  * @author Franklin Marquette
  */
-public class RetractSolenoid extends CommandBase {
+public class RetractSolenoid1 extends CommandBase {
     
-    public RetractSolenoid() {
+    public RetractSolenoid1() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(solenoid1);
     }
 
     // Called just before this Command runs the first time
@@ -22,6 +23,7 @@ public class RetractSolenoid extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        solenoid1.RETRACT();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,6 +33,7 @@ public class RetractSolenoid extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        solenoid1.OFF();
     }
 
     // Called when another command which requires one or more of the same
