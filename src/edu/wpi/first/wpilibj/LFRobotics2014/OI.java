@@ -1,8 +1,13 @@
 
 package edu.wpi.first.wpilibj.LFRobotics2014;
 
+import edu.wpi.first.wpilibj.LFRobotics2014.commands.ExtendSolenoid1;
+import edu.wpi.first.wpilibj.LFRobotics2014.commands.ExtendSolenoid2;
+import edu.wpi.first.wpilibj.LFRobotics2014.commands.RetractSolenoid1;
+import edu.wpi.first.wpilibj.LFRobotics2014.commands.RetractSolenoid2;
+import edu.wpi.first.wpilibj.LFRobotics2014.subsystems.XBox;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,5 +45,23 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+    
+    public XBox joystick = new XBox(1);
+    
+    private final Button extendSolenoid1 = new JoystickButton(joystick, XBox.A_BUTTON);
+    private final Button retractSolenoid1 = new JoystickButton(joystick, XBox.B_BUTTON);
+    
+    private final Button extendSolenoid2 = new JoystickButton(joystick, XBox.Y_BUTTON);
+    private final Button retractSolenoid2 = new JoystickButton(joystick, XBox.X_BUTTON);
+
+    public OI(){
+        
+        extendSolenoid1.whenPressed(new ExtendSolenoid1());
+        retractSolenoid1.whenPressed(new RetractSolenoid1());
+        
+        extendSolenoid2.whenPressed(new ExtendSolenoid2());
+        retractSolenoid2.whenPressed(new RetractSolenoid2());
+        
+    }
 }
 
