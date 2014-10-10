@@ -1,0 +1,6 @@
+MIDlet-Name: Pnuematics
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: FIRST
+MIDlet-1: RobotTemplate, , edu.wpi.first.wpilibj.LFRobotics2014.RobotTemplate
+MicroEdition-Profile: IMP-1.0
+MicroEdition-Configuration: CLDC-1.1
